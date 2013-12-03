@@ -1,1 +1,1 @@
-Películas ADMIN
+PelÃ­culas ADMIN
