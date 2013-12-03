@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5.0" method="upgrade">
+
+        <name>Peliculas</name>
+
+        <!-- Los siguientes elementos son opcionales y sin restricciones de formato -->
+        <creationDate>Noviembre 2013</creationDate>
+        <author>Belen G. Lipuzkoa</author>
+        <authorEmail>belenglipuzkoa@gmail.com</authorEmail>
+        <authorUrl>http://www.belenglipuzkoa.com</authorUrl>
+        <copyright>Copyright Info</copyright>
+        <license>Licencia Info</license>
+
+        <!--  La  versión de desarrollo del componente se registra en la tabla del mismo -->
+        <version>0.0.1</version>
+
+        <!-- La descripción es opcional. Por defecto se introduce el nombre del componente -->
+        <description>Este componente parsea un archivo XML y muestra la información sobre la programación semanal.</description>
+		
+		<install> <!-- Runs on install -->
+        <sql>
+            <file driver="mysqli" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+	    </install>
+	    <uninstall> <!-- Runs on uninstall -->
+	        <sql>
+	            <file driver="mysqli" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+	        </sql>
+	    </uninstall>
+	    
+        <!-- Para las actualizaciones - Nuevo en 2.5 --> 
+        <update>
+                <schemas>
+                        <schemapath type="mysql">sql/updates/mysql</schemapath>
+                </schemas>
+        </update>
+
+        <!-- Archivos pertenecientes  a la interfaz de usuario -->
+        <!-- Note el atributo de la carpeta: Este atributo describe hacia donde y de donde van ha ser copiados los archivos del paquete de instalación.-->
+        <files folder="site">
+               <filename>index.html</filename>
+               <filename>peliculas.php</filename>
+        </files>
+
+       <administration>
+               <!-- Menú de la sección Administración  -->
+               <menu>Películas</menu>
+               <!-- Archivos pertenecientes  a la administración -->
+               <!-- Note el atributo de la carpeta: Este atributo describe hacia dónde y de donde van a ser copiados los archivos del paquete de instalación. -->
+               <files folder="admin"> !-- Archivos principales de la carpeta admin -->
+                       <filename>index.html</filename>
+                       <filename>peliculas.php</filename>
+                       <!-- Archivos de la sección de SQL -->
+                       <folder>sql</folder>
+               </files>
+
+       </administration>
+
+</extension>
